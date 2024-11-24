@@ -9,14 +9,15 @@ from .models import VantaaOpenApplications
 
 
 class SimpleExtractor:
-    def __init__(self):
-        self.api_url = API_URL
+    def __init__(self, api_url):
+        self.api_url = api_url
 
     def fetch_data(self):
-        return requests.get(
+        r = requests.get(
             url=self.api_url,
             headers={"Content-Type": "application/json"},
         )
+        return r
 
     def extract(self) -> pd.DataFrame:
         response = self.fetch_data()
@@ -77,7 +78,7 @@ class SimpleLoader:
 
 def run_etl(conn_str: str):
     # Initialise ETL parts
-    extractor = SimpleExtractor()
+    extractor = SimpleExtractor(API_URL)
     transformer = SimpleTransformer()
     loader = SimpleLoader(conn_str=conn_str)
 
