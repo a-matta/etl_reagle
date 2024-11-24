@@ -1,41 +1,44 @@
 # etl_reagle
 
-This repository contains the unit tests for ETL assignment for Realge Oy.
+This repository contains the unit tests for ETL assignment for Realge.
 
 This task is designed to evaluate your approach to testing a simple Extract-Transform-Load (ETL) data pipeline.
 
----
+## Requirements:
 
-*Documentation**: [https://a-matta.github.io/etl_reagle](https://a-matta.github.io/etl_reagle)
+* python3.10 or later
+* SQLite3
+* [Poetry](https://python-poetry.org/)
+* [Install Allure Report](https://allurereport.org/docs/install/)
 
-**Source Code**: [https://github.com/a-matta/etl_reagle](https://github.com/a-matta/etl_reagle)
+## How to Get Started
 
----
-
-## Development
-
-* Requirements:
-  * [Poetry](https://python-poetry.org/)
-  * Python 3.12+
-  * [Install Allure Report](https://allurereport.org/docs/install/)
-* Clone this repository
-* Create a virtual environment and activate it
-  ```sh
-  poetry shell
-  ```
-* Install the dependencies
-  ```sh
-  poetry install
-  ```
-* Running the tests
-  ```sh
-  # Uses PyInvoke
-  inv tests
-  ```
-* To view the allure reports.
-  ```sh
-  allure serve allure-results
-  ```
+1. Clone this repository 
+1. Create a virtual environment and activate it
+   ```sh
+   poetry shell
+   ```
+1. Install the dependencies
+   ```sh
+   poetry install
+   ```
+1. Initialize the Database and run the ETL
+   ```sh
+   python main.py --method init
+   ```
+1. Run pipeline to fetch open job applications load them into a local SQLite database 
+   ```sh
+   python main.py
+   ```
+1. Running the tests
+   ```sh
+   # Uses PyInvoke
+   inv tests
+   ```
+1. To view allure reports.
+   ```sh
+   allure serve allure-results
+   ```
 
 ---
 

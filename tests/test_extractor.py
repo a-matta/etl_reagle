@@ -35,8 +35,6 @@ def test_extract(mock_get, mock_response: Any):
     df = extractor.extract()
 
     assert isinstance(df, pd.DataFrame)
-    print(df.shape)
-    print(df.columns.tolist())
     assert df.shape == (1, 10)
     assert df.columns.tolist() == [
         "id",
