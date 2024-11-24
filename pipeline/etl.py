@@ -1,7 +1,8 @@
+from datetime import date
+
 import pandas as pd
 import requests
 from sqlalchemy import create_engine, orm
-from datetime import date
 
 from .const import API_URL
 from .models import VantaaOpenApplications
@@ -67,9 +68,7 @@ class SimpleLoader:
         # Load data into database inside session
         session = orm.sessionmaker(bind=self.engine)
         with session() as sess:
-            sess.bulk_save_objects(
-                [VantaaOpenApplications(**row) for row in df.to_dict(orient="records")]
-            )
+            sess.bulk_save_objects([VantaaOpenApplications(**row) for row in df.to_dict(orient="records")])
             sess.commit()
 
     def __call__(self, df: pd.DataFrame) -> pd.DataFrame:
