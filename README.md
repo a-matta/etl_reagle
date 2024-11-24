@@ -1,6 +1,8 @@
 # etl_reagle
 
-A short description of the project
+This repository contains the unit tests for ETL assignment for Realge Oy.
+
+This task is designed to evaluate your approach to testing a simple Extract-Transform-Load (ETL) data pipeline.
 
 ---
 
@@ -24,10 +26,6 @@ A short description of the project
 * Install the dependencies
   ```sh
   poetry install
-  ```
-* Install playwright dependencies
-  ```sh
-  playwright install
   ```
 * Running the tests
   ```sh
